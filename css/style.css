@@ -1,28 +1,52 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    font-family: Playfair;
+    background-color: white;
+    color: black;
+    min-height: 100vh;
+}
+
 .container {
     display: grid;
-    grid-template-rows: 100px auto;
-    height: 100vh;
+    grid-template-rows: repeat(6,auto);
+    min-height: 100vh;
     width: 100%;
     grid-template-areas:
         "header header"
-        "main main";
+        "home home"
+        "about about"
+        "products products"
+        "contacts contacts"
+        "footer footer";
 }
 
 .header {
     grid-area: header;
     display: flex;
     flex-direction: column;
-    background-color: darkred;
+    background-color: transparent;
     color: white;
     height: 150px;
     width: 100%;
     justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.header.scrolled {
+    background-color: #7A0F0F;
+    height: 100px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logoContainer {
@@ -31,12 +55,24 @@
     align-items: center;
     width: 20%;
     margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.header.scrolled .logoContainer {
+    margin-top: 5px;
 }
 
 header img {
     display: flex;
     height: 150px;
     width: 150px;
+    transition: all 0.3s ease;
+}
+
+.header.scrolled header img,
+.header.scrolled .logoContainer img {
+    height: 100px;
+    width: 100px;
 }
 
 nav {
@@ -51,12 +87,101 @@ nav ul {
     display: flex;
     gap: 50px;
     margin-top: 15px;
+    transition: all 0.3s ease;
 }
 
+.header.scrolled nav ul {
+    margin-top: 5px;
+    gap: 30px;
+}
 
 nav a {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    font-size: 1.2rem;
     transition: color 0.3s;
+}
+
+#home{
+    grid-area: home;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../assets/img/background-section1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+    color:white;
+}
+
+#home h1{
+    font-size: 4rem;
+    margin: 5px;
+}
+
+#home p{
+    font-size: 2rem;
+    margin: 20px;
+}
+
+#about{
+    grid-area: about;
+    display: grid;
+    height: 100vh;
+    color: white;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 1fr;
+    background-color: #C7A57A;
+}
+
+.areatexto{
+    display: flex;
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#about h2{
+    font-size: 3rem;
+    text-align: left;
+}
+
+#about p{
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+
+.areafoto{
+    grid-column: 1; 
+    grid-row: 1;
+    display: flex;
+    height: 500px;
+    width: 500px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-image: url(../assets/img/foto-about.png);
+    background-size: cover;
+}
+
+#products{
+    grid-area: products;
+    background-color: antiquewhite;
+}
+
+#contacts{
+    grid-area: contacts;
+}
+
+footer{
+    grid-area: footer;
+    margin-bottom: 0;
+    background-color: antiquewhite;
 }
