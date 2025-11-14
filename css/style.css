@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,7 +15,7 @@ body {
 
 .container {
     display: grid;
-    grid-template-rows: repeat(6,auto);
+    grid-template-rows: repeat(6, auto);
     min-height: 100vh;
     width: 100%;
     grid-template-areas:
@@ -58,15 +59,15 @@ body {
     transition: all 0.3s ease;
 }
 
-.header.scrolled .logoContainer {
-    margin-top: 5px;
-}
-
 header img {
     display: flex;
     height: 150px;
     width: 150px;
     transition: all 0.3s ease;
+}
+
+.header.scrolled .logoContainer {
+    margin-top: 5px;
 }
 
 .header.scrolled header img,
@@ -103,7 +104,7 @@ nav a {
     transition: color 0.3s;
 }
 
-#home{
+#home {
     grid-area: home;
     display: flex;
     flex-direction: column;
@@ -115,30 +116,30 @@ nav a {
     height: 100vh;
     position: relative;
     z-index: 1;
-    color:white;
+    color: white;
 }
 
-#home h1{
+#home h1 {
     font-size: 4rem;
     margin: 5px;
 }
 
-#home p{
+#home p {
     font-size: 2rem;
     margin: 20px;
 }
 
-#about{
+#about {
     grid-area: about;
     display: grid;
     height: 100vh;
     color: white;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     background-color: #C7A57A;
 }
 
-.areatexto{
+.areatexto {
     display: flex;
     grid-column: 2;
     grid-row: 1;
@@ -147,40 +148,37 @@ nav a {
     flex-direction: column;
 }
 
-#about h2{
+#about h2 {
     font-size: 3rem;
     text-align: left;
 }
 
-#about p{
+#about p {
     text-align: left;
     font-size: 1.5rem;
 }
 
-
-.areafoto{
-    grid-column: 1; 
+.imagesobre {
+    grid-column: 1;
     grid-row: 1;
     display: flex;
     height: 500px;
     width: 500px;
     margin: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-image: url(../assets/img/foto-about.png);
-    background-size: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.527);
 }
 
-#products{
+#products {
     grid-area: products;
     background-color: antiquewhite;
 }
 
-#contacts{
+#contacts {
     grid-area: contacts;
 }
 
-footer{
+footer {
     grid-area: footer;
     margin-bottom: 0;
     background-color: antiquewhite;
