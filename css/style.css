@@ -144,51 +144,227 @@ nav a:hover::after {
 #about {
     grid-area: about;
     display: grid;
-    height: 100vh;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
+    grid-template-rows: auto auto;
+    min-height: 100vh;
     color: white;
-    background-color: #C7A57A;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.651), inset 0 -4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 40px 60px 40px;
+    gap: 50px;
+    align-items: center;
+    grid-template-areas:
+        "areatexto imagesobre"
+        "cards cards";
 }
 
 
 #about h2 {
-    font-size: 3rem;
+    font-size: 2.8rem;
     text-align: left;
+    margin-bottom: 25px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #E8B956;
 }
 
 #about p {
     text-align: left;
-    font-size: 1.5rem;
+    font-size: 1.40rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .areatexto {
+    grid-area: areatexto;
     display: flex;
-    grid-column: 2;
-    grid-row: 1;
-    text-align: right;
-    justify-content: center;
     flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    height: auto;
+    padding: 50px;
+    margin: 0;
+    border-radius: 0;
+    background: transparent;
+    border-left: 3px solid #E8B956;
 }
 
 .imagesobre {
-    grid-column: 1;
-    grid-row: 1;
+    grid-area: imagesobre;
     display: flex;
-    height: 450px;
-    width: 450px;
-    margin: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.651);
+    height: 420px;
+    width: 420px;
+    margin: 0;
+    border-radius: 4px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+    border: 1px solid rgba(232, 185, 86, 0.2);
+}
+
+
+.cardsContainer {
+    grid-area: cards;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 60px 0;
+    margin: 0;
+    width: 100%;
+}
+
+.card {
+    padding: 40px 30px;
+    border-radius: 4px;
+    text-align: center;
+    transition: none;
+    background: transparent;
+    border-bottom: 1px solid rgba(232, 185, 86, 0.3);
+    box-shadow: none;
+    position: relative;
+}
+
+.card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+    color: #E8B956;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
 }
 
 #products {
     grid-area: products;
-    background-color: antiquewhite;
+    min-height: 100vh;
+    padding: 100px 60px 80px 60px;
+    color: white;
+    background: linear-gradient(180deg, #1a1a1a 0%, #1f1f1f 50%, #1a1a1a 100%);
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.651), inset 0 -4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#products h2 {
+    color: #E8B956;
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#products > p {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.40rem;
+    margin-bottom: 60px;
+    max-width: 900px;
+    line-height: 2;
+    letter-spacing: 0.3px;
+}
+
+.galeriaGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.produto-card {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(232,185,86,0.2);
+    border-radius: 0;
+    padding: 0;
+    text-align: center;
+    box-shadow: none;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.produto-card:hover {
+    border-bottom-color: rgba(232,185,86,0.5);
+    transform: translateY(-8px);
+}
+
+.produto-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    display: block;
+    transition: all 0.4s ease;
+}
+
+.produto-card:hover img {
+    box-shadow: 0 12px 40px rgba(232,185,86,0.15);
+}
+
+.produto-card h3 {
+    color: #E8B956;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.produto-card .subtitulo,
+.produto-card .subttitulo,
+.produto-card .subtitle {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.05rem;
+    line-height: 1.9;
+    letter-spacing: 0.3px;
+}
+
+/* Responsive gallery */
+@media (max-width: 1024px) {
+    .galeriaGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+    #products {
+        padding: 80px 50px;
+    }
+    .produto-card img {
+        height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .galeriaGrid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    #products {
+        padding: 60px 30px;
+    }
+    #products h2 {
+        font-size: 2.4rem;
+    }
+    #products > p {
+        font-size: 1rem;
+    }
+    .produto-card img {
+        height: 300px;
+    }
+    .produto-card h3 {
+        font-size: 1.2rem;
+    }
 }
 
 #contacts {
     grid-area: contacts;
+    height: 100vh;
+    color: gray;
+    background-color:antiquewhite;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.651);
 }
 
 footer {
