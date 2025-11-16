@@ -23,7 +23,7 @@ body {
         "header header"
         "home home"
         "about about"
-        "products products"
+        "promotions promotions"
         "contacts contacts"
         "footer footer";
 }
@@ -129,6 +129,7 @@ nav a:hover::after {
     position: relative;
     z-index: 1;
     color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.651);
 }
 
 #home h1 {
