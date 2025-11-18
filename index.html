@@ -41,14 +41,14 @@
                 <h2>Quem somos?</h2>
                 <p>Fundada em 1983 por empreendedores para trazer mais qualidade ao mercado.
                     Começamos entregar um serviço de exclusividade para cada cliente.
-                    Destaca-se pela excelência nos cortes, seleção criteriosa com compromisso em entregar sabor e confiança 
+                    Destaca-se pela excelência nos cortes, seleção criteriosa com compromisso em entregar sabor e
+                    confiança
                 </p>
             </div>
             <img class="imagesobre" src="assets/img/foto-about.png" alt="imagem do comércio">
-            
             <div class="cardsContainer">
                 <div class="card">
-                    <img src="assets/img/iconefaca.png" alt="icon">
+                    <img src="assets/img/iconefaca.png" alt="icone de corte">
                     <h3> Corte Artesanal</h3>
                 </div>
                 <div class="card">
@@ -60,11 +60,13 @@
                     <h3>Profissionais qualificados</h3>
                 </div>
             </div>
+
         </section>
 
         <section id="products">
-            <h2>Produtos</h2>
-            <p>Seleção premium dos nossos cortes e produtos, preparados com todo cuidado para garantir sabor e qualidade.</p>
+            <h2>O que oferecemos?</h2>
+            <p>Seleção premium dos nossos cortes e produtos, preparados com todo cuidado para garantir sabor e
+                qualidade.</p>
 
             <div class="galeriaGrid">
                 <article class="produto-card">
@@ -106,14 +108,100 @@
         </section>
 
         <section id="contacts">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto eaque laudantium voluptatibus id dolore
-                repudiandae. Magnam totam animi dolore explicabo, esse facilis accusantium quaerat vel error eum
-                exercitationem soluta molestiae?</p>
+            <div class="contacts-container">
+                <div class="contacts-form">
+                    <h2>Fale conosco</h2>
+                    <form action="#" method="post" autocomplete="off">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" required>
+
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+                <div class="containerMapInfos">
+                    <div class="contacts-map">
+                        <h2>Localização</h2>
+                        <iframe src="https://www.google.com/maps?q=-23.55052,-46.633308&z=15&output=embed" width="100%"
+                            height="300" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" title="Mapa localização Beeflogy"></iframe>
+                        <p class="telefone">telefone tal</p>
+                        <p class="email">email tal</p>
+                        <p class="endereco">endereço tal</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p> &copy; 2025 Beeflogy. Todos os direitos reservados.</p>
+        <div class="footer-container">
+            <div class="footer-linha">
+                <div class="footer-brand">
+                    <h2>Beeflogy</h2>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quibusdam, doloribus! Tempore ducimus facere, dolore nisi ullam,
+                        ea pariatur assumenda saepe expedita soluta repudiandae
+                        accusantium consequatur itaque at. Labore, rerum molestiae.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Links A</h3>
+
+                    <ul>
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Serviços</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Links B</h3>
+
+                    <ul>
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Serviços</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Links C</h3>
+
+                    <ul>
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Produtos</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="footer-row">
+                <p class="footer-copy">© 2025 Todos os direitos reservados.</p>
+                <p class="footer-credit">Desevolvido por <strong>STRUCTA</strong></p>
+
+                <div class="footer-social">
+                    <div class="social-icons">
+                        <a href="#"></a>
+                        <a href="#">📘</a>
+                        <a href="#">🐦</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
