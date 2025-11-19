@@ -1,28 +1,36 @@
+/* ========== IMPORTAÇÕES E RESET GLOBAL ========== */
+/* Importa a fonte Playfair do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
 
+/* Reset CSS: remove margens e paddings padrão de todos os elementos */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Inclui padding e border no cálculo de largura/altura */
 }
 
+/* Configurações gerais do body */
 body {
     font-family: Playfair;
-    background-color: white;
-    color: black;
-    min-height: 100vh;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    min-height: 100vh; /* Garante altura mínima de 100% da tela */
 }
 
+/* ========== LAYOUT PRINCIPAL (GRID) ========== */
+/* Container principal que organiza todas as seções da página usando CSS Grid */
 .container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, auto);
     min-height: 100vh;
     width: 100%;
+    /* Define as áreas nomeadas do grid para facilitar o posicionamento das seções */
     grid-template-areas:
         "home home"
         "about about"
         "products products"
+        "depoimentos depoimentos"
         "contacts contacts"
         "footer footer";
 }
@@ -43,12 +51,14 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Estilo do header quando a página é rolada para baixo */
 .header.scrolled {
     background-color: black;
     height: 100px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Container da logo no centro do header */
 .logoContainer {
     display: flex;
     justify-content: center;
@@ -65,16 +75,22 @@ header img {
     transition: all 0.3s ease;
 }
 
+.header #cta {
+    text-shadow: #E8B956 0px 0px 10px;
+}
+
 .header.scrolled .logoContainer {
     margin-top: 5px;
 }
 
+/* Reduz o tamanho da logo quando o header está scrolled */
 .header.scrolled header img,
 .header.scrolled .logoContainer img {
     height: 100px;
     width: 100px;
 }
 
+/* Navegação principal do site */
 nav {
     display: flex;
     justify-content: center;
@@ -103,21 +119,25 @@ nav a {
     transition: color 0.3s;
 }
 
+/* Efeito de sublinhado animado nos links de navegação */
 nav a::after {
     content: '';
     display: block;
     width: 100%;
     height: 2px;
     background: white;
-    transform: scaleX(0);
+    transform: scaleX(0); /* Começa invisível */
     transform-origin: center;
     transition: transform 0.28s ease;
 }
 
+/* Exibe o sublinhado quando o mouse passa sobre o link */
 nav a:hover::after {
     transform: scaleX(1);
 }
 
+/* ========== SEÇÃO HOME (HERO) ========== */
+/* Seção inicial com imagem de fundo e texto de boas-vindas */
 #home {
     grid-area: home;
     display: flex;
@@ -144,19 +164,22 @@ nav a:hover::after {
     margin: 20px;
 }
 
+/* ========== SEÇÃO ABOUT (SOBRE NÓS) ========== */
+/* Seção com informações sobre a empresa, imagem e cards de destaque */
 #about {
     grid-area: about;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto auto;
     min-height: 100vh;
-    color: white;
-    background: linear-gradient(135deg, #3a0606 0%, #570707 100%);
-    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.651), inset 0 -4px 8px rgba(0, 0, 0, 0.3);
+    color: #e0e0e0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-bottom: 1px solid rgba(232, 185, 86, 0.2);
+    box-shadow: inset 60px 0 60px -60px rgba(0, 0, 0, 0.5), inset -60px 0 60px -60px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
-    padding: 80px 40px 60px 40px;
-    gap: 50px;
+    padding: 120px 60px 100px 60px;
+    gap: 80px;
     align-items: center;
     grid-template-areas:
         "areatexto imagesobre"
@@ -165,21 +188,22 @@ nav a:hover::after {
 
 
 #about h2 {
-    font-size: 2.8rem;
+    font-size: 3rem;
     text-align: left;
-    margin-bottom: 25px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
     color: #E8B956;
 }
 
 #about p {
     text-align: left;
-    font-size: 1.40rem;
-    line-height: 1.9;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.25rem;
+    line-height: 2;
+    color: rgba(224, 224, 224, 0.85);
 }
 
+/* Área de texto da seção Sobre nós */
 .areatexto {
     grid-area: areatexto;
     display: flex;
@@ -187,25 +211,25 @@ nav a:hover::after {
     text-align: left;
     justify-content: center;
     height: auto;
-    padding: 50px;
+    padding: 0;
     margin: 0;
     background: transparent;
-    border-left: 3px solid #E8B956;
 }
 
+/* Imagem principal da seção Sobre nós com efeitos visuais */
 .imagesobre {
     grid-area: imagesobre;
     display: flex;
-    height: 420px;
-    width: 420px;
+    height: 450px;
+    width: 450px;
     margin: 0;
-    border-radius: 4px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     object-fit: cover;
-    border: 1px solid rgba(232, 185, 86, 0.2);
 }
 
-
+/* ========== CARDS DE DESTAQUE ========== */
+/* Container que organiza os 3 cards em grid (Corte Artesanal, Carne Selecionada, etc) */
 .cardsContainer {
     grid-area: cards;
     display: grid;
@@ -217,139 +241,252 @@ nav a:hover::after {
 }
 
 .card {
-    padding: 5px;
+    padding: 40px 20px;
     text-align: center;
-    transition: none;
-    background: transparent;
-    border-bottom: 1px solid rgba(232, 185, 86, 0.3);
+    transition: transform 0.3s ease;
+    background: rgba(45, 45, 45, 0.5);
+    border-radius: 8px;
     box-shadow: none;
     position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(232, 185, 86, 0.3);
 }
 
 .card h3 {
-    font-size: 1.6rem;
-    margin-bottom: 18px;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
     color: #E8B956;
     font-weight: 600;
-    letter-spacing: 0.3px;
+    letter-spacing: -0.3px;
 }
 
 .card p {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(224, 224, 224, 0.7);
+    line-height: 1.8;
 }
 
+/* ========== SEÇÃO PRODUCTS (PRODUTOS) ========== */
+/* Seção de galeria de produtos com grid de 3 colunas */
 #products {
     grid-area: products;
     min-height: 100vh;
-    padding: 100px 60px 80px 60px;
-    color: white;
-    background: linear-gradient(135deg, #3a0606 0%, #570707 100%);
+    padding: 120px 60px 100px 60px;
+    color: #e0e0e0;
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    border-bottom: 1px solid rgba(232, 185, 86, 0.2);
+    box-shadow: inset 60px 0 60px -60px rgba(0, 0, 0, 0.5), inset -60px 0 60px -60px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 #products h2 {
     color: #E8B956;
-    font-size: 2.8rem;
-    margin-bottom: 20px;
+    font-size: 3rem;
+    margin-bottom: 25px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: -0.5px;
+    text-align: center;
 }
 
 #products p {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1.40rem;
-    margin-bottom: 60px;
-    max-width: 900px;
+    color: rgba(224, 224, 224, 0.85);
+    font-size: 1.25rem;
+    margin-bottom: 80px;
+    max-width: 800px;
     line-height: 2;
-    letter-spacing: 0.3px;
+    text-align: center;
 }
 
+/* Grid que organiza os cards de produtos em 3 colunas */
 .galeriaGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 50px;
+    max-width: 1200px;
+    width: 100%;
 }
 
+/* Card individual de cada produto com efeito hover */
 .produto-card {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid rgba(232, 185, 86, 0.2);
-    border-radius: 0;
-    padding: 0;
+    background: rgba(26, 26, 26, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 25px;
     text-align: center;
     box-shadow: none;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .produto-card:hover {
-    border-bottom-color: rgba(232, 185, 86, 0.5);
-    transform: translateY(-8px);
+    border-color: rgba(232, 185, 86, 0.4);
+    transform: translateY(-5px);
 }
 
 .produto-card img {
     width: 100%;
-    height: 280px;
+    height: 260px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 24px;
+    border-radius: 6px;
+    margin-bottom: 20px;
     display: block;
-    transition: all 0.4s ease;
-}
-
-.produto-card:hover img {
-    box-shadow: 0 12px 40px rgba(232, 185, 86, 0.15);
+    transition: all 0.3s ease;
 }
 
 .produto-card h3 {
     color: #E8B956;
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
 }
 
 .produto-card .subtitulo {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1.05rem;
-    line-height: 1.9;
-    letter-spacing: 0.3px;
+    color: rgba(224, 224, 224, 0.7);
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
+/* ========== SEÇÃO DEPOIMENTOS ========== */
+/* Seção de depoimentos de clientes com cards de avaliações */
+#depoimentos {
+    grid-area: depoimentos;
+    min-height: 100vh;
+    padding: 120px 60px 100px 60px;
+    color: #e0e0e0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-bottom: 1px solid rgba(232, 185, 86, 0.2);
+    box-shadow: inset 60px 0 60px -60px rgba(0, 0, 0, 0.5), inset -60px 0 60px -60px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#depoimentos h2 {
+    color: #E8B956;
+    font-size: 3rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+#depoimentos > p {
+    color: rgba(224, 224, 224, 0.85);
+    font-size: 1.25rem;
+    margin-bottom: 80px;
+    max-width: 800px;
+    line-height: 2;
+}
+
+/* Grid que organiza os cards de depoimentos em 3 colunas */
+.grid-depoimentos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Card individual de cada depoimento */
+.card-depoimento {
+    background: rgba(45, 45, 45, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 35px;
+    text-align: left;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.card-depoimento:hover {
+    transform: translateY(-5px);
+    border-color: rgba(232, 185, 86, 0.3);
+}
+
+/* Cabeçalho do depoimento com avatar e informações */
+.cabecalho-depoimento {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Avatar circular com iniciais do cliente */
+.avatar-depoimento {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3a0606, #570707);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.info-depoimento h3 {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Estrelas de avaliação */
+.estrelas-depoimento {
+    color: #E8B956;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+}
+
+/* Texto do depoimento */
+.texto-depoimento {
+    color: rgba(224, 224, 224, 0.7);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* ========== SEÇÃO CONTACTS (CONTATOS) ========== */
+/* Seção de contato com formulário e mapa lado a lado */
 #contacts {
     grid-area: contacts;
-    min-height: 480px;
+    height: 100vh;
     color: white;
-    background-color: #f8f5ef;
-    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.10);
-    background: linear-gradient(135deg, #3a0606 0%, #570707 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    box-shadow: inset 60px 0 60px -60px rgba(0, 0, 0, 0.5), inset -60px 0 60px -60px rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 60px 0;
 }
 
+/* Container flexível que divide formulário e mapa */
 .contacts-container {
     display: flex;
     gap: 48px;
     width: 90%;
     max-width: 1100px;
     margin: 0 auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px black;
-    background-color: gray;
-    padding: 32px 24px;
 }
 
+/* Estilização do formulário de contato */
 .contacts-form{
-    background-color: #222;
-    padding: 16px;
-    border-radius: 10px;
+    background-color: rgba(10, 10, 10, 0.6);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .contacts-form,
@@ -362,6 +499,7 @@ nav a:hover::after {
 .contacts-map h2 {
     font-size: 1.5rem;
     margin-bottom: 18px;
+    color: #E8B956;
 }
 
 .contacts-form form {
@@ -378,48 +516,59 @@ nav a:hover::after {
 .contacts-form input,
 .contacts-form textarea {
     padding: 8px 10px;
-    border: 1px solid #e0d6c3;
+    border: 1px solid rgba(232, 185, 86, 0.3);
     border-radius: 6px;
     font-size: 1rem;
-    background: #f9f7f3;
+    background: rgba(255, 255, 255, 0.95);
     resize: vertical;
+    color: #222;
 }
 
 .contacts-form button {
     background: #E8B956;
-    color: #222;
+    color: #1a1a1a;
     border: none;
     border-radius: 6px;
-    padding: 10px 0;
+    padding: 12px 0;
     font-weight: 700;
     font-size: 1.1rem;
-    margin-top: 8px;
+    margin-top: 12px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.3s;
     font-family: Playfair;
 }
 
+/* Efeito hover do botão de enviar */
 .contacts-form button:hover {
     background: #d1a63a;
+    transform: translateY(-2px);
 }
 
+/* Container para mapa e informações de contato */
 .containerMapInfos{
-    background-color: white;
+    background-color: rgba(10, 10, 10, 0.6);
     width: 50%;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.contacts-map iframe {
-    width: 100%;
+/* Estilização do iframe do Google Maps */
+.container iframe {
     min-height: 260px;
     border: none;
     border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
     margin-bottom: 15px;
 }
+.containerMapInfos p {
+    color: rgba(224, 224, 224, 0.85);
+    line-height: 1.8;
+    margin-left: 10px;
+    margin-top: 10px;
+}
 
-
+/* Estilo global para todos os iframes (mapa de localização) */
 iframe {
     border: 0;
     border-radius: 8px;
@@ -427,6 +576,8 @@ iframe {
     height: 300px;
 }
 
+/* ========== FOOTER (RODAPÉ) ========== */
+/* Rodapé com informações da empresa, links e redes sociais */
 footer {
     background-color: black;
     color: white;

@@ -1,42 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+<!-- Cabeçalho do documento: configurações de metadados, links e título da página -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="assets/img/logo-beeflogy png.png" type="image/x-icon">
-    <title>Beeflogy</title>
+    <meta charset="UTF-8"> <!-- Define codificação de caracteres UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Torna o site responsivo -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Link para o arquivo de estilos CSS -->
+    <link rel="shortcut icon" href="assets/img/logo-beeflogy png.png" type="image/x-icon"> <!-- Ícone do site (favicon) -->
+    <title>Beeflogy</title> <!-- Título que aparece na aba do navegador -->
 </head>
 
 <body>
+    <!-- Cabeçalho fixo do site com navegação -->
     <header class="header">
-
+        <!-- Menu de navegação principal do site -->
         <nav>
+            <!-- Menu do lado esquerdo -->
             <ul class="menuEsquerdo">
-                <li><a href="#home">INÍCIO</a></li>
+                <li><a href="#home">ÍNICIO</a></li>
                 <li><a href="#about">SOBRE NÓS</a></li>
+                <li><a href="#products">PRODUTOS</a></li>
             </ul>
 
+            <!-- Logo centralizada no header -->
             <div class="logoContainer">
                 <img src="assets/img/logo-beeflogy png.png" alt="logo-beeflogy">
             </div>
 
+            <!-- Menu do lado direito -->
             <ul class="menuDireito">
-                <li><a href="#products">PRODUTOS</a></li>
+                <li><a href="#depoimentos">DEPOIMENTOS</a></li>
                 <li><a href="#contacts">CONTATOS</a></li>
+                <li><a id="cta" href="#">PEÇA JÁ</a></li>
             </ul>
         </nav>
 
     </header>
 
+    <!-- Container principal que agrupa todas as seções do site -->
     <main class="container">
+        <!-- Seção Hero (página inicial) com imagem de fundo e mensagem de boas-vindas -->
         <section id="home">
             <h1>Bem-vindo ao Beeflogy</h1>
             <p>Onde cada corte é uma experiência</p>
         </section>
 
+        <!-- Seção Sobre Nós: história da empresa, imagem e cards de destaque -->
         <section id="about">
+            <!-- Área de texto com informações sobre a empresa -->
             <div class="areatexto">
                 <h2>Quem somos?</h2>
                 <p>Fundada em 1983 por empreendedores para trazer mais qualidade ao mercado.
@@ -45,7 +56,9 @@
                     confiança
                 </p>
             </div>
+            <!-- Imagem principal da seção -->
             <img class="imagesobre" src="assets/img/foto-about.png" alt="imagem do comércio">
+            <!-- Container com 3 cards de destaque: Corte Artesanal, Carne Selecionada, Profissionais Qualificados -->
             <div class="cardsContainer">
                 <div class="card">
                     <img src="assets/img/iconefaca.png" alt="icone de corte">
@@ -63,11 +76,13 @@
 
         </section>
 
+        <!-- Seção de Produtos: galeria com os principais cortes e produtos oferecidos -->
         <section id="products">
             <h2>O que oferecemos?</h2>
             <p>Seleção premium dos nossos cortes e produtos, preparados com todo cuidado para garantir sabor e
                 qualidade.</p>
 
+            <!-- Grid com 6 produtos em layout de 3 colunas -->
             <div class="galeriaGrid">
                 <article class="produto-card">
                     <img src="assets/img/imagemangu.png" alt="Corte Especial Angus">
@@ -87,7 +102,7 @@
                     <p class="subtitulo">Seleção criteriosa de origem confiável.</p>
                 </article>
 
-                <article class="produto-card">
+                <!-- <article class="produto-card">
                     <img src="assets/img/imagemcortes.png" alt="Peça de Corte Artesanal">
                     <h3>Peça de Corte Artesanal</h3>
                     <p class="subtitulo">Cortes modelados manualmente por nossos profissionais.</p>
@@ -103,12 +118,55 @@
                     <img src="assets/img/imagemembutidos.png" alt="Embutidos Artesanais">
                     <h3>Embutidos Artesanais</h3>
                     <p class="subtitulo">Feitos com receitas tradicionais e ingredientes premium.</p>
+                </article> -->
+            </div>
+        </section>
+
+        <!-- Seção de Depoimentos: avaliações e feedbacks de clientes -->
+        <section id="depoimentos">
+            <h2>O que nossos clientes dizem</h2>
+            <p>Confira os depoimentos de quem já experimentou a qualidade dos nossos produtos.</p>
+            
+            <div class="grid-depoimentos">
+                <article class="card-depoimento">
+                    <div class="cabecalho-depoimento">
+                        <div class="avatar-depoimento">JM</div>
+                        <div class="info-depoimento">
+                            <h3>João Martins</h3>
+                            <div class="estrelas-depoimento">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="texto-depoimento">"Excelente qualidade! Os cortes são perfeitos e o atendimento é excepcional. Sempre compro aqui para meus churrascos."</p>
+                </article>
+
+                <article class="card-depoimento">
+                    <div class="cabecalho-depoimento">
+                        <div class="avatar-depoimento">MS</div>
+                        <div class="info-depoimento">
+                            <h3>Maria Silva</h3>
+                            <div class="estrelas-depoimento">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="texto-depoimento">"A carne é sempre fresca e de primeira qualidade. Os profissionais são muito atenciosos e sabem indicar os melhores cortes."</p>
+                </article>
+
+                <article class="card-depoimento">
+                    <div class="cabecalho-depoimento">
+                        <div class="avatar-depoimento">PC</div>
+                        <div class="info-depoimento">
+                            <h3>Pedro Costa</h3>
+                            <div class="estrelas-depoimento">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="texto-depoimento">"Desde que descobri a Beeflogy, não compro em outro lugar. A diferença na qualidade é notável em cada refeição!"</p>
                 </article>
             </div>
         </section>
 
+        <!-- Seção de Contatos: formulário de contato e mapa de localização -->
         <section id="contacts">
             <div class="contacts-container">
+                <!-- Formulário de contato do lado esquerdo -->
                 <div class="contacts-form">
                     <h2>Fale conosco</h2>
                     <form action="#" method="post" autocomplete="off">
@@ -124,23 +182,25 @@
                         <button type="submit">Enviar</button>
                     </form>
                 </div>
+                <!-- Container com mapa e informações de contato do lado direito -->
                 <div class="containerMapInfos">
-                    <div class="contacts-map">
-                        <h2>Localização</h2>
+                        <!-- Iframe incorporando Google Maps com a localização do estabelecimento -->
                         <iframe src="https://www.google.com/maps?q=-23.55052,-46.633308&z=15&output=embed" width="100%"
                             height="300" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade" title="Mapa localização Beeflogy"></iframe>
-                        <p class="telefone">telefone tal</p>
-                        <p class="email">email tal</p>
-                        <p class="endereco">endereço tal</p>
-                    </div>
+                        <!-- Informações de contato: telefone, email e endereço -->
+                        <p class="telefone">Telefone: 9999-9999</p>
+                        <p class="email">E-mail: contato@beeflogy.com</p>
+                        <p class="endereco">Endereço: Rua Exemplo, 123, Cidade, Estado</p>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Rodapé com informações da empresa, links e redes sociais -->
     <footer>
         <div class="footer-container">
+            <!-- Primeira linha do footer com marca, links e redes sociais -->
             <div class="footer-linha">
                 <div class="footer-brand">
                     <h2>Beeflogy</h2>
@@ -189,6 +249,7 @@
 
             <hr>
 
+            <!-- Segunda linha do footer com copyright e créditos -->
             <div class="footer-row">
                 <p class="footer-copy">© 2025 Todos os direitos reservados.</p>
                 <p class="footer-credit">Desevolvido por <strong>STRUCTA</strong></p>
@@ -204,6 +265,7 @@
         </div>
     </footer>
 
+    <!-- Link para o arquivo JavaScript com as funcionalidades do site -->
     <script src="script.js"></script>
 </body>
 
