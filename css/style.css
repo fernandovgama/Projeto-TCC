@@ -75,8 +75,10 @@ header img {
     transition: all 0.3s ease;
 }
 
-.header #cta {
-    text-shadow: #E8B956 0px 0px 10px;
+.header .cta {
+    text-shadow: white 0px 0px 10px;
+    text-decoration: overline;
+    color: rgb(252, 177, 177);
 }
 
 .header.scrolled .logoContainer {
