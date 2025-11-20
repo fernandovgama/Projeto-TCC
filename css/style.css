@@ -71,15 +71,10 @@ body {
 header img {
     display: flex;
     height: 150px;
-    width: 150px;
+    width: 150px;   
     transition: all 0.3s ease;
 }
 
-.header .cta {
-    text-shadow: white 0px 0px 10px;
-    text-decoration: overline;
-    color: rgb(252, 177, 177);
-}
 
 .header.scrolled .logoContainer {
     margin-top: 5px;
@@ -119,6 +114,12 @@ nav a {
     font-weight: 500;
     font-size: 1.2rem;
     transition: color 0.3s;
+}
+
+nav .cta {
+    text-shadow: white 0px 0px 10px;
+    text-decoration: overline;
+    color: rgb(253, 255, 146);
 }
 
 /* Efeito de sublinhado animado nos links de navegação */
@@ -231,7 +232,7 @@ nav a:hover::after {
 }
 
 /* ========== CARDS DE DESTAQUE ========== */
-/* Container que organiza os 3 cards em grid (Corte Artesanal, Carne Selecionada, etc) */
+/* Container que organiza os 3 cards em grid (Missão Visão e Valores) */
 .cardsContainer {
     grid-area: cards;
     display: grid;
@@ -270,6 +271,21 @@ nav a:hover::after {
     font-size: 1rem;
     color: rgba(224, 224, 224, 0.7);
     line-height: 1.8;
+}
+
+.card ul {
+    list-style: disc inside;
+    text-align: left;
+    color: rgba(224, 224, 224, 0.7);
+    line-height: 1.8;
+    margin-top: 10px;   
+    margin-left: 10px;
+}
+
+.card li{
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+
 }
 
 /* ========== SEÇÃO PRODUCTS (PRODUTOS) ========== */
@@ -565,11 +581,43 @@ nav a:hover::after {
 }
 .containerMapInfos p {
     color: rgba(224, 224, 224, 0.85);
-    line-height: 1.8;
-    margin-left: 10px;
+    line-height: 1.5;
+    margin-left: 5px;
     margin-top: 10px;
+    display: flex;
+    align-items: start;
+    gap: 15px;
 }
 
+/* Ícones de contato */
+.icone-contato {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+.icone-telefone {
+    background-image: url('../assets/img/iconetelefone.png');
+}
+
+.icone-email {
+    background-image: url('../assets/img/iconeemail.png');
+}
+
+.icone-endereco {
+    background-image: url('../assets/img/iconelocal.png');
+}
+
+.containerMapInfos img{
+    margin-right: 8px;
+    width:15px;
+    height:15px;
+
+}
 /* Estilo global para todos os iframes (mapa de localização) */
 iframe {
     border: 0;
