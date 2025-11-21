@@ -19,7 +19,7 @@
             <ul class="menuEsquerdo">
                 <li><a href="#home">INÍCIO</a></li>
                 <li><a href="#about">SOBRE NÓS</a></li>
-                <li><a href="#products">PRODUTOS</a></li>
+                <li><a href="#especialidades">ESPECIALIDADES</a></li>
             </ul>
 
             <!-- Logo centralizada no header -->
@@ -33,10 +33,26 @@
                 <li><a href="#contacts">CONTATOS</a></li>
                 <li><a class="cta" href="#">PEÇA AQUI</a></li>
             </ul>
+
+            <!-- Botão hambúrguer para menu mobile -->
+            <button class="menu-mobile-icon" aria-label="Menu de navegação">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <!-- Menu lateral mobile -->
+            <ul class="menu-mobile">
+                <li><a href="#home">INÍCIO</a></li>
+                <li><a href="#about">SOBRE NÓS</a></li>
+                <li><a href="#especialidades">ESPECIALIDADES</a></li>
+                <li><a href="#depoimentos">DEPOIMENTOS</a></li>
+                <li><a href="#contacts">CONTATOS</a></li>
+                <li><a class="cta-mobile" href="#">PEÇA AQUI</a></li>
+            </ul>
         </nav>
-
     </header>
-
+ 
     <!-- Container principal que agrupa todas as seções do site -->
     <main class="container">
         <!-- Seção Hero (página inicial) com imagem de fundo e mensagem de boas-vindas -->
@@ -55,6 +71,8 @@
                     Destaca-se pela excelência nos cortes, seleção criteriosa com compromisso em entregar sabor e
                     confiança
                 </p>
+
+                <button href="#">Entre em contato</button>
             </div>
             <!-- Imagem principal da seção -->
             <img class="imagesobre" src="assets/img/foto-about.png" alt="imagem do comércio">
@@ -84,31 +102,33 @@
 
         </section>
 
-        <!-- Seção de Produtos -->
-        <section id="products">
+        <!-- Seção de Especialidades -->
+        <section id="especialidades">
             <h2>O que oferecemos?</h2>
             <p>Seleção premium dos nossos cortes e produtos, preparados com todo cuidado para garantir sabor e
                 qualidade.</p>
 
             <!-- Grid com 3 produtos em layout de 3 colunas -->
             <div class="galeriaGrid">
-                <article class="produto-card">
-                    <img src="assets/img/imagecortes.png" alt="Corte Artesanal">
-                    <h3>Corte Artesanal</h3>
-                    <p class="subtitulo">Maciez e sabor inigualáveis.</p>
+                <article class="especialidade-card">
+                    <img src="assets/img/imagecortes.png" alt="Variedade de Carnes">
+                    <h3>Variedade de Carnes</h3>
+                    <p class="subtitulo">Atendemos a todos os gostos com cortes variados e de alta qualidade.</p>
                 </article>
 
-                <article class="produto-card">
+                <article class="especialidade-card">
                     <img src="assets/img/imageselecao.png" alt="Carne Selecionada">
                     <h3>Carne Selecionada</h3>
                     <p class="subtitulo">Seleção criteriosa de origem confiável.</p>
                 </article>
                 
-                <article class="produto-card">
+                <article class="especialidade-card">
                     <img src="assets/img/imageprofissional.png" alt="Profissionais Qualificados">
                     <h3>Profissionais Qualificados</h3>
-                    <p class="subtitulo">Preparados para oferecer o melhor atendimento.</p>
+                    <p class="subtitulo">Preparados para oferecer o melhor atendimento a você   .</p>
                 </article>
+
+                <button>Faça seu pedido</button>
             </div>
         </section>
 
@@ -150,6 +170,8 @@
                     </div>
                     <p class="texto-depoimento">"Desde que descobri a Beeflogy, não compro em outro lugar. A diferença na qualidade é notável em cada refeição!"</p>
                 </article>
+
+                <button>Experimente você também</button>
             </div>
         </section>
 
@@ -238,15 +260,13 @@
 
             <!-- Segunda linha do footer com copyright e créditos -->
             <div class="footer-row">
-                <p class="footer-copy">© 2025 Todos os direitos reservados.</p>
-                <p class="footer-credit">Desevolvido por <strong>STRUCTA</strong></p>
-
+                
                 <div class="footer-social">
                     <div class="social-icons">
-                        <a href="#">😃</a>
-                            <a href="#">📘</a>
-                        <a href="#">🐦</a>
+                        <a href="#"><img src="assets/img/iconewhats.png" alt="icone whatsApp"></a>
                     </div>
+                    <p class="footer-credit">Desevolvido por <strong>STRUCTA</strong></p>
+                    <p class="footer-copy">© 2025 Todos os direitos reservados.</p>
                 </div>
             </div>
         </div>

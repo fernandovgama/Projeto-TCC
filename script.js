@@ -12,3 +12,23 @@ document.addEventListener('scroll', function() {
     }
 });
 
+// ========== MENU HAMBÚRGUER MOBILE ==========
+// Controla abertura/fechamento do menu lateral em tablets e smartphones
+const menuIcon = document.querySelector('.menu-mobile-icon');
+const menuMobile = document.querySelector('.menu-mobile');
+const menuLinks = document.querySelectorAll('.menu-mobile a');
+
+// Toggle do menu quando clica no botão hambúrguer
+menuIcon.addEventListener('click', function() {
+    menuIcon.classList.toggle('active'); // Anima o botão (3 linhas → X)
+    menuMobile.classList.toggle('active'); // Mostra/esconde menu lateral
+});
+
+// Fecha o menu quando clica em qualquer link
+menuLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        menuIcon.classList.remove('active'); // Volta botão ao estado normal
+        menuMobile.classList.remove('active'); // Esconde o menu
+    });
+});
+

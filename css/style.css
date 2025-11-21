@@ -9,12 +9,18 @@
     box-sizing: border-box; /* Inclui padding e border no cálculo de largura/altura */
 }
 
+html {
+    overflow-x: hidden; /* Previne scroll horizontal */
+}
+
 /* Configurações gerais do body */
 body {
     font-family: Playfair;
     background-color: #1a1a1a;
     color: #e0e0e0;
     min-height: 100vh; /* Garante altura mínima de 100% da tela */
+    overflow-x: hidden; /* Previne scroll horizontal */
+    width: 100%;
 }
 
 /* ========== LAYOUT PRINCIPAL (GRID) ========== */
@@ -29,7 +35,7 @@ body {
     grid-template-areas:
         "home home"
         "about about"
-        "products products"
+        "especialidades especialidades"
         "depoimentos depoimentos"
         "contacts contacts"
         "footer footer";
@@ -74,7 +80,6 @@ header img {
     width: 150px;   
     transition: all 0.3s ease;
 }
-
 
 .header.scrolled .logoContainer {
     margin-top: 5px;
@@ -137,6 +142,94 @@ nav a::after {
 /* Exibe o sublinhado quando o mouse passa sobre o link */
 nav a:hover::after {
     transform: scaleX(1);
+}
+
+/* ========== MENU MOBILE (HAMBÚRGUER) ========== */
+/* Botão hambúrguer - oculto por padrão em desktop */
+.menu-mobile-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+.hamburger-line {
+    width: 28px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Animação do botão quando ativo (transforma em X) */
+.menu-mobile-icon.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.menu-mobile-icon.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-mobile-icon.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Menu lateral mobile - oculto por padrão */
+.menu-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    flex-direction: column;
+    padding: 100px 0 40px 0;
+    list-style: none;
+    transition: right 0.4s ease;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.menu-mobile.active {
+    right: 0;
+}
+
+.menu-mobile li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.menu-mobile li a {
+    display: block;
+    padding: 20px 30px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.menu-mobile li a:hover {
+    background: rgba(232, 185, 86, 0.1);
+    padding-left: 40px;
+}
+
+/* CTA especial no menu mobile */
+.menu-mobile .cta-mobile {
+    color: #E8B956;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(232, 185, 86, 0.3);
 }
 
 /* ========== SEÇÃO HOME (HERO) ========== */
@@ -219,6 +312,28 @@ nav a:hover::after {
     background: transparent;
 }
 
+.areatexto button {
+    font-family: Playfair;
+    margin-top: 30px;
+    padding: 6px 12px;
+    width: 200px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #570707, #3a0606);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.areatexto button:hover {
+    background: linear-gradient(135deg, #570707, #3a0606);
+    transform: translateY(-3px);
+    border: 1px solid rgba(232, 185, 86, 0.4);
+}
+
 /* Imagem principal da seção Sobre nós com efeitos visuais */
 .imagesobre {
     grid-area: imagesobre;
@@ -230,6 +345,7 @@ nav a:hover::after {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     object-fit: cover;
 }
+
 
 /* ========== CARDS DE DESTAQUE ========== */
 /* Container que organiza os 3 cards em grid (Missão Visão e Valores) */
@@ -288,10 +404,10 @@ nav a:hover::after {
 
 }
 
-/* ========== SEÇÃO PRODUCTS (PRODUTOS) ========== */
-/* Seção de galeria de produtos com grid de 3 colunas */
-#products {
-    grid-area: products;
+/* ========== SEÇÃO ESPECIALIDADES ========== */
+/* Seção de galeria de especialidades com grid de 3 colunas */
+#especialidades {
+    grid-area: especialidades;
     min-height: 100vh;
     padding: 120px 60px 100px 60px;
     color: #e0e0e0;
@@ -305,7 +421,7 @@ nav a:hover::after {
     align-items: center;
 }
 
-#products h2 {
+#especialidades h2 {
     color: #E8B956;
     font-size: 3rem;
     margin-bottom: 25px;
@@ -314,7 +430,7 @@ nav a:hover::after {
     text-align: center;
 }
 
-#products p {
+#especialidades p {
     color: rgba(224, 224, 224, 0.85);
     font-size: 1.25rem;
     margin-bottom: 80px;
@@ -332,8 +448,8 @@ nav a:hover::after {
     width: 100%;
 }
 
-/* Card individual de cada produto com efeito hover */
-.produto-card {
+/* Card individual de cada especialidade com efeito hover */
+.especialidade-card {
     background: rgba(26, 26, 26, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 8px;
@@ -344,12 +460,12 @@ nav a:hover::after {
     cursor: pointer;
 }
 
-.produto-card:hover {
+.especialidade-card:hover {
     border-color: rgba(232, 185, 86, 0.4);
     transform: translateY(-5px);
 }
 
-.produto-card img {
+.especialidade-card img {
     width: 100%;
     height: 260px;
     object-fit: cover;
@@ -359,7 +475,7 @@ nav a:hover::after {
     transition: all 0.3s ease;
 }
 
-.produto-card h3 {
+.especialidade-card h3 {
     color: #E8B956;
     font-size: 1.3rem;
     margin-bottom: 10px;
@@ -367,10 +483,34 @@ nav a:hover::after {
     letter-spacing: -0.3px;
 }
 
-.produto-card .subtitulo {
+.especialidade-card .subtitulo {
     color: rgba(224, 224, 224, 0.7);
     font-size: 1rem;
     line-height: 1.6;
+}
+
+.galeriaGrid button {
+    grid-column: 2;
+    font-family: Playfair;
+    margin-top: 15px;
+    padding: 12px 24px;
+    width: 400px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #570707, #3a0606);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    font-size: 1.2rem;
+}
+
+.galeriaGrid button:hover {
+    background: linear-gradient(135deg, #570707, #3a0606);
+    transform: translateY(-3px);
+    border: 1px solid rgba(232, 185, 86, 0.4);
 }
 
 /* ========== SEÇÃO DEPOIMENTOS ========== */
@@ -473,6 +613,30 @@ nav a:hover::after {
     font-size: 1.05rem;
     line-height: 1.8;
     font-style: italic;
+}
+
+.grid-depoimentos button {
+    grid-column: 2;
+    font-family: Playfair;
+    margin-top: 30px;
+    padding: 12px 24px;
+    width: 400px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #570707, #3a0606);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    font-size: 1.2rem;
+}
+
+.grid-depoimentos button:hover {
+    background: linear-gradient(135deg, #570707, #3a0606);
+    transform: translateY(-3px);
+    border: 1px solid rgba(232, 185, 86, 0.4);
 }
 
 /* ========== SEÇÃO CONTACTS (CONTATOS) ========== */
@@ -655,6 +819,12 @@ footer {
     grid-column: -1;
 }
 
+.footer-social p{
+    margin-bottom: 0.5rem;
+    justify-self: center;
+
+}
+
 .footer-copy {
     justify-self: start;
     grid-column: 1 / span 2;
@@ -699,4 +869,422 @@ footer {
     font-size: 1.5rem;
     color: #ccc;
     text-decoration: none;
+}
+
+/* ========== MEDIA QUERIES - RESPONSIVIDADE ========== */
+
+/* Tablets - Telas médias (768px a 1024px) */
+@media (max-width: 1024px) {
+    /* Header e navegação */
+    .header {
+        height: 100px;
+        padding: 0;
+    }
+
+    nav {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        padding: 0 20px;
+    }
+
+    /* Oculta menus desktop em tablets/mobile */
+    .menuEsquerdo,
+    .menuDireito {
+        display: none;
+    }
+
+    /* Mostra botão hambúrguer */
+    .menu-mobile-icon {
+        display: flex;
+    }
+
+    /* Ativa menu mobile */
+    .menu-mobile {
+        display: flex;
+    }
+
+    .logoContainer {
+        width: auto;
+        margin: 0;
+        position: static;
+    }
+
+    header img,
+    .logoContainer img {
+        height: 80px;
+        width: 80px;
+    }
+
+    .header.scrolled {
+        height: 80px;
+    }
+
+    .header.scrolled header img,
+    .header.scrolled .logoContainer img {
+        height: 60px;
+        width: 60px;
+    }
+
+    /* Seção Home */
+    #home {
+        height: 80vh;
+        padding: 0 30px;
+    }
+
+    #home h1 {
+        font-size: 3rem;
+    }
+
+    #home p {
+        font-size: 1.5rem;
+    }
+
+    /* Seção About */
+    #about {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "areatexto"
+            "imagesobre"
+            "cards";
+        padding: 80px 40px;
+        gap: 40px;
+    }
+
+    .imagesobre {
+        justify-self: center;
+        height: 550px;
+        width: 550px;
+    }
+
+    .cardsContainer {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Seção Especialidades */
+    #especialidades {
+        padding: 80px 40px;
+    }
+
+    .galeriaGrid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .galeriaGrid button {
+        grid-column: 1;
+        width: 100%;
+    }
+
+    .galeriaGrid img{
+        height: 500px;
+        width: 100%;
+    }
+
+    .especialidade-card .subtitulo{
+        font-size: 1rem;
+        margin:auto;
+    }
+
+    .galeriaGrid .especialidade-card h3{
+        font-size: 1.5rem;
+    }
+
+    /* Seção Depoimentos */
+    #depoimentos {
+        padding: 80px 40px;
+    }
+
+    .grid-depoimentos {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .grid-depoimentos button {
+        grid-column: 1;
+        width: 100%;
+    }
+
+    /* Seção Contatos */
+    #contacts {
+        height: auto;
+        padding: 80px 20px;
+    }
+
+    .contacts-container {
+        flex-direction: column;
+        width: 95%;
+    }
+
+    .containerMapInfos {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    /* Footer */
+    .footer-linha {
+        grid-template-columns: 3fr repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .footer-copy,
+    .footer-credit {
+        justify-self: center;
+        grid-column: 1;
+    }
+}
+
+/* Smartphones - Telas pequenas (até 768px) */
+@media (max-width: 768px) {
+    /* Header */
+    .header {
+        height: auto;
+        padding: 10px 0;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        gap: 15px;
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+
+    nav a {
+        font-size: 1rem;
+    }
+
+    .logoContainer {
+        margin-top: 5px;
+    }
+
+    header img {
+        height: 80px;
+        width: 80px;
+    }
+
+    .header.scrolled nav ul {
+        gap: 15px;
+    }
+
+    /* Seção Home */
+    #home {
+        height: 60vh;
+        padding: 0 20px;
+    }
+
+    #home h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    #home p {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    /* Seção About */
+    #about {
+        padding: 60px 20px;
+    }
+
+    #about h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    #about p {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .areatexto {
+        text-align: center;
+    }
+
+    .areatexto button {
+        display: block;
+        max-width:300px;
+        margin: 20px auto 0;
+    }
+
+    .imagesobre {
+        height: 280px;
+        width: 280px;
+    }
+
+    .card h3 {
+        font-size: 1.2rem;
+    }
+
+    .card p,
+    .card li {
+        font-size: 0.95rem;
+    }
+
+    /* Seção Especialidades */
+    #especialidades {
+        padding: 60px 20px;
+    }
+
+    #especialidades h2 {
+        font-size: 2rem;
+    }
+
+    #especialidades p {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+    }
+
+    .especialidade-card img {
+        height: 200px;
+    }
+
+    .especialidade-card h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Seção Depoimentos */
+    #depoimentos {
+        padding: 60px 20px;
+    }
+
+    #depoimentos h2 {
+        font-size: 2rem;
+    }
+
+    #depoimentos > p {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+    }
+
+    .card-depoimento {
+        padding: 25px;
+    }
+
+    /* Seção Contatos */
+    #contacts {
+        padding: 60px 15px;
+    }
+
+    .contacts-form,
+    .containerMapInfos {
+        padding: 25px;
+        width: 100%;
+    }
+
+    .contacts-form h2,
+    .containerMapInfos h2 {
+        font-size: 1.3rem;
+    }
+
+    .containerMapInfos p {
+        font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 2rem 1rem;
+    }
+
+    .footer-container {
+        gap: 2rem;
+    }
+
+    .footer-brand h2 {
+        font-size: 1.3rem;
+    }
+
+    .footer-brand p {
+        font-size: 0.9rem;
+    }
+
+    .footer-links h3 {
+        font-size: 1.1rem;
+    }
+
+    .footer-links ul li {
+        font-size: 0.9rem;
+    }
+}
+
+/* Smartphones pequenos - Telas muito pequenas (até 480px) */
+@media (max-width: 480px) {
+    /* Header */
+    nav ul {
+        gap: 10px;
+        font-size: 0.8rem;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
+
+    header img {
+        height: 60px;
+        width: 60px;
+    }
+
+    /* Seção Home */
+    #home h1 {
+        font-size: 1.5rem;
+    }
+
+    #home p {
+        font-size: 1rem;
+    }
+
+    /* Seções gerais */
+    #about,
+    #especialidades,
+    #depoimentos {
+        padding: 40px 15px;
+    }
+
+    #about h2,
+    #especialidades h2,
+    #depoimentos h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Imagem About */
+    .imagesobre {
+        height: 220px;
+        width: 220px;
+    }
+
+    /* Cards */
+    .card,
+    .card-depoimento {
+        padding: 20px;
+    }
+
+    /* Botões */
+    .areatexto button,
+    .galeriaGrid button,
+    .grid-depoimentos button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    /* Contatos */
+    .contacts-form,
+    .containerMapInfos {
+        padding: 20px;
+    }
+
+    /* Footer */
+    .footer-brand p,
+    .footer-links ul li {
+        font-size: 0.85rem;
+    }
+
+    .social-icons a {
+        font-size: 1.3rem;
+    }
 }
