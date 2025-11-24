@@ -32,3 +32,24 @@ menuLinks.forEach(link => {
     });
 });
 
+// ========== ANIMAÇÕES DE SCROLL (FADE-IN) ==========
+// Adiciona efeito fade-in nos elementos quando aparecem na tela durante o scroll
+const elementosAnimados = document.querySelectorAll('.animar-scroll');
+
+// Cria observador que detecta quando elementos entram no viewport
+const observador = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        // Se o elemento está visível na tela
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animado'); // Adiciona classe que ativa animação
+            observador.unobserve(entry.target); // Para de observar (anima apenas uma vez)
+        }
+    });
+}, {
+    threshold: 0.1 // Ativa quando 10% do elemento está visível
+});
+
+// Inicia observação de todos os elementos com classe .animar-scroll
+elementosAnimados.forEach(elemento => {
+    observador.observe(elemento);
+});

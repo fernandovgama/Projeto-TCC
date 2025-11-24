@@ -11,6 +11,7 @@
 
 html {
     overflow-x: hidden; /* Previne scroll horizontal */
+    scroll-behavior: smooth; /* Scroll suave ao navegar entre seções */
 }
 
 /* Configurações gerais do body */
@@ -274,7 +275,7 @@ nav a:hover::after {
     box-shadow: inset 60px 0 60px -60px rgba(0, 0, 0, 0.5), inset -60px 0 60px -60px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
-    padding: 120px 60px 100px 60px;
+    padding: 120px 60px;
     gap: 80px;
     align-items: center;
     grid-template-areas:
@@ -304,43 +305,52 @@ nav a:hover::after {
     grid-area: areatexto;
     display: flex;
     flex-direction: column;
-    text-align: left;
     justify-content: center;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    background: transparent;
 }
 
-.areatexto button {
+/* ========== BOTÕES CTA (CALL TO ACTION) ========== */
+/* Classe base para todos os botões do site */
+.cta-button,
+.cardsContainer button,
+.galeriaGrid button,
+.grid-depoimentos button {
     font-family: Playfair;
-    margin-top: 30px;
-    padding: 6px 12px;
-    width: 200px;
+    padding: 12px 32px;
     font-size: 1.1rem;
     font-weight: 700;
     color: white;
     background: linear-gradient(135deg, #570707, #3a0606);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-.areatexto button:hover {
-    background: linear-gradient(135deg, #570707, #3a0606);
+.cta-button:hover,
+.cardsContainer button:hover,
+.galeriaGrid button:hover,
+.grid-depoimentos button:hover {
+    background: linear-gradient(135deg, #6b0808, #4a0707);
     transform: translateY(-3px);
-    border: 1px solid rgba(232, 185, 86, 0.4);
+    border-color: rgba(232, 185, 86, 0.5);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Ajustes específicos */
+.cardsContainer button {
+    grid-column: 1 / -1;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 400px;
+    justify-self: center;
 }
 
 /* Imagem principal da seção Sobre nós com efeitos visuais */
 .imagesobre {
     grid-area: imagesobre;
-    display: flex;
     height: 450px;
     width: 450px;
-    margin: 0;
     border-radius: 8px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     object-fit: cover;
@@ -398,10 +408,9 @@ nav a:hover::after {
     margin-left: 10px;
 }
 
-.card li{
+.card li {
     font-size: 1.2rem;
     margin-bottom: 8px;
-
 }
 
 /* ========== SEÇÃO ESPECIALIDADES ========== */
@@ -424,7 +433,7 @@ nav a:hover::after {
 #especialidades h2 {
     color: #E8B956;
     font-size: 3rem;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
     font-weight: 700;
     letter-spacing: -0.5px;
     text-align: center;
@@ -433,7 +442,7 @@ nav a:hover::after {
 #especialidades p {
     color: rgba(224, 224, 224, 0.85);
     font-size: 1.25rem;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     max-width: 800px;
     line-height: 2;
     text-align: center;
@@ -443,7 +452,7 @@ nav a:hover::after {
 .galeriaGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    gap: 40px;
     max-width: 1200px;
     width: 100%;
 }
@@ -491,26 +500,9 @@ nav a:hover::after {
 
 .galeriaGrid button {
     grid-column: 2;
-    font-family: Playfair;
     margin-top: 15px;
-    padding: 12px 24px;
-    width: 400px;
-    font-size: 1rem;
-    font-weight: 700;
-    color: white;
-    background: linear-gradient(135deg, #570707, #3a0606);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    font-size: 1.2rem;
-}
-
-.galeriaGrid button:hover {
-    background: linear-gradient(135deg, #570707, #3a0606);
-    transform: translateY(-3px);
-    border: 1px solid rgba(232, 185, 86, 0.4);
+    width: 100%;
+    max-width: 400px;
 }
 
 /* ========== SEÇÃO DEPOIMENTOS ========== */
@@ -532,7 +524,7 @@ nav a:hover::after {
 #depoimentos h2 {
     color: #E8B956;
     font-size: 3rem;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
     font-weight: 700;
     letter-spacing: -0.5px;
 }
@@ -540,7 +532,7 @@ nav a:hover::after {
 #depoimentos > p {
     color: rgba(224, 224, 224, 0.85);
     font-size: 1.25rem;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     max-width: 800px;
     line-height: 2;
 }
@@ -549,7 +541,7 @@ nav a:hover::after {
 .grid-depoimentos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    gap: 40px;
     width: 100%;
     max-width: 1200px;
 }
@@ -617,40 +609,42 @@ nav a:hover::after {
 
 .grid-depoimentos button {
     grid-column: 2;
-    font-family: Playfair;
     margin-top: 30px;
-    padding: 12px 24px;
-    width: 400px;
-    font-size: 1rem;
-    font-weight: 700;
-    color: white;
-    background: linear-gradient(135deg, #570707, #3a0606);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    font-size: 1.2rem;
-}
-
-.grid-depoimentos button:hover {
-    background: linear-gradient(135deg, #570707, #3a0606);
-    transform: translateY(-3px);
-    border: 1px solid rgba(232, 185, 86, 0.4);
+    width: 100%;
+    max-width: 400px;
 }
 
 /* ========== SEÇÃO CONTACTS (CONTATOS) ========== */
 /* Seção de contato com formulário e mapa lado a lado */
 #contacts {
     grid-area: contacts;
-    height: 100vh;
+    min-height: 100vh;
     color: white;
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     box-shadow: inset 60px 0 60px -60px rgba(0, 0, 0, 0.5), inset -60px 0 60px -60px rgba(0, 0, 0, 0.5);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 60px 0;
+    padding: 120px 60px 100px 60px;
+}
+
+#contacts .titulo-secao {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #E8B956;
+}
+
+#contacts .sub-titulo-secao {
+    color: rgba(224, 224, 224, 0.85);
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    max-width: 800px;
+    line-height: 2;
+    text-align: center;
 }
 
 /* Container flexível que divide formulário e mapa */
@@ -667,7 +661,7 @@ nav a:hover::after {
     background-color: rgba(10, 10, 10, 0.6);
     padding: 40px;
     border-radius: 8px;
-    box-shadow: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -704,13 +698,24 @@ nav a:hover::after {
     background: rgba(255, 255, 255, 0.95);
     resize: vertical;
     color: #222;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: Playfair;
+}
+
+.contacts-form input:focus,
+.contacts-form textarea:focus {
+    border-color: #E8B956;
+    background: #ffffff;
+    box-shadow: 0 0 0 2px rgba(232, 185, 86, 0.2);
+    transform: translateY(-2px);
 }
 
 .contacts-form button {
-    background: #E8B956;
+    background: #E8B956;    
     color: #1a1a1a;
     border: none;
-    border-radius: 6px;
+    border-radius: 6px; 
     padding: 12px 0;
     font-weight: 700;
     font-size: 1.1rem;
@@ -732,7 +737,7 @@ nav a:hover::after {
     width: 50%;
     padding: 40px;
     border-radius: 8px;
-    box-shadow: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -774,13 +779,10 @@ nav a:hover::after {
 
 .icone-endereco {
     background-image: url('../assets/img/iconelocal.png');
-}
-
-.containerMapInfos img{
+}.containerMapInfos img {
     margin-right: 8px;
-    width:15px;
-    height:15px;
-
+    width: 15px;
+    height: 15px;
 }
 /* Estilo global para todos os iframes (mapa de localização) */
 iframe {
@@ -810,41 +812,53 @@ footer {
 .footer-linha {
     width: 100%;
     display: grid;
-    grid-template-columns: 3fr repeat(3, 1fr);
-    justify-items: center;
-    gap: 4rem;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
 }
 
+.footer-brand {
+    text-align: left;
+}
+
+.footer-brand p {
+    color: rgba(224, 224, 224, 0.8);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.footer-links,
 .footer-social {
-    grid-column: -1;
+    text-align: left;
 }
 
-.footer-social p{
-    margin-bottom: 0.5rem;
-    justify-self: center;
-
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-.footer-copy {
-    justify-self: start;
-    grid-column: 1 / span 2;
-}
-
+.footer-copy,
 .footer-credit {
-    justify-self: end;
-    grid-column: 3 / span 2;
+    font-size: 0.9rem;
+    color: rgba(224, 224, 224, 0.7);
 }
 
 .footer-brand h2 {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    color: #E8B956;
 }
 
 .footer-links h3,
 .footer-social h3 {
-    margin-bottom: 0.5rem;
-    justify-self: center;
-
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #E8B956;
 }
 
 .footer-links ul {
@@ -864,11 +878,51 @@ footer {
     color: white;
 }
 
-.social-icons a {
-    margin-right: 1rem;
-    font-size: 1.5rem;
-    color: #ccc;
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.social-icons a img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.1);
+}
+
+/* ========== LOGO CLICÁVEL ========== */
+/* Remove sublinhado da logo mantendo funcionalidade */
+.link-logo {
+    display: block;
     text-decoration: none;
+}
+
+.link-logo::after {
+    display: none !important;
+}
+
+/* ========== ANIMAÇÕES DE SCROLL ========== */
+/* Elementos aparecem suavemente ao rolar */
+.animar-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animar-scroll.animado {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Restaura transições rápidas de hover após animação inicial */
+.animar-scroll.animado.card,
+.animar-scroll.animado.especialidade-card,
+.animar-scroll.animado.card-depoimento {
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, opacity 0.6s ease;
 }
 
 /* ========== MEDIA QUERIES - RESPONSIVIDADE ========== */
@@ -952,6 +1006,10 @@ footer {
         gap: 40px;
     }
 
+    .areatexto buttom{
+        width:50%;
+    }
+
     .imagesobre {
         justify-self: center;
         height: 550px;
@@ -961,6 +1019,7 @@ footer {
     .cardsContainer {
         grid-template-columns: 1fr;
         gap: 20px;
+        align-items: center;
     }
 
     /* Seção Especialidades */
@@ -973,14 +1032,20 @@ footer {
         gap: 30px;
     }
 
-    .galeriaGrid button {
+    .cardsContainer button,
+    .galeriaGrid button,
+    .grid-depoimentos button {
         grid-column: 1;
         width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .galeriaGrid img{
         height: 500px;
-        width: 100%;
+        width: 65%;
+        margin: auto;
     }
 
     .especialidade-card .subtitulo{
@@ -1002,11 +1067,6 @@ footer {
         gap: 30px;
     }
 
-    .grid-depoimentos button {
-        grid-column: 1;
-        width: 100%;
-    }
-
     /* Seção Contatos */
     #contacts {
         height: auto;
@@ -1025,14 +1085,18 @@ footer {
 
     /* Footer */
     .footer-linha {
-        grid-template-columns: 3fr repeat(3, 1fr);
+        grid-template-columns: 1fr 1fr;
         gap: 2rem;
     }
 
-    .footer-copy,
-    .footer-credit {
-        justify-self: center;
-        grid-column: 1;
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
     }
 }
 
@@ -1107,10 +1171,10 @@ footer {
         text-align: center;
     }
 
-    .areatexto button {
-        display: block;
-        max-width:300px;
-        margin: 20px auto 0;
+    .cardsContainer button,
+    .galeriaGrid button,
+    .grid-depoimentos button {
+        max-width: 350px;
     }
 
     .imagesobre {
@@ -1196,6 +1260,18 @@ footer {
         gap: 2rem;
     }
 
+    .footer-linha {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-brand,
+    .footer-links,
+    .footer-social {
+        text-align: center;
+    }
+
     .footer-brand h2 {
         font-size: 1.3rem;
     }
@@ -1204,18 +1280,25 @@ footer {
         font-size: 0.9rem;
     }
 
-    .footer-links h3 {
-        font-size: 1.1rem;
+    .footer-links h3,
+    .footer-social h3 {
+        font-size: 1rem;
     }
 
     .footer-links ul li {
         font-size: 0.9rem;
+    }
+
+    .social-icons {
+        justify-content: center;
     }
 }
 
 /* Smartphones pequenos - Telas muito pequenas (até 480px) */
 @media (max-width: 480px) {
     /* Header */
+
+
     nav ul {
         gap: 10px;
         font-size: 0.8rem;
@@ -1265,11 +1348,12 @@ footer {
     }
 
     /* Botões */
-    .areatexto button,
+    .cardsContainer button,
     .galeriaGrid button,
     .grid-depoimentos button {
-        padding: 10px 20px;
+        padding: 12px 24px;
         font-size: 1rem;
+        max-width: 280px;
     }
 
     /* Contatos */
@@ -1279,12 +1363,24 @@ footer {
     }
 
     /* Footer */
-    .footer-brand p,
+    footer {
+        padding: 1.5rem 1rem;
+    }
+
+    .footer-brand p {
+        font-size: 0.85rem;
+    }
+
     .footer-links ul li {
         font-size: 0.85rem;
     }
 
-    .social-icons a {
-        font-size: 1.3rem;
+    .footer-bottom {
+        font-size: 0.8rem;
+    }
+
+    .social-icons a img {
+        width: 28px;
+        height: 28px;
     }
 }
