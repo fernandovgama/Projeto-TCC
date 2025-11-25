@@ -124,7 +124,6 @@ nav a {
 
 nav .cta {
     text-shadow: white 0px 0px 10px;
-    text-decoration: overline;
     color: rgb(253, 255, 146);
 }
 
@@ -458,44 +457,123 @@ nav a:hover::after {
 }
 
 /* Card individual de cada especialidade com efeito hover */
-.especialidade-card {
-    background: rgba(26, 26, 26, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: none;
-    transition: all 0.3s ease;
+.especialidade-card{
+    perspective: 1000px;
+    height: 450px;
     cursor: pointer;
 }
 
-.especialidade-card:hover {
-    border-color: rgba(232, 185, 86, 0.4);
-    transform: translateY(-5px);
+.card-interno {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
 }
 
-.especialidade-card img {
+.especialidade-card:hover .card-interno {
+    transform: rotateY(180deg);
+}
+
+.card-frente,
+.card-verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Frente do Card */
+.card-frente{
+    background: rgba(26, 26, 26, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-frente img{
     width: 100%;
     height: 260px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 8px;
     margin-bottom: 20px;
-    display: block;
-    transition: all 0.3s ease;
 }
 
-.especialidade-card h3 {
+.card-frente h3 {
     color: #E8B956;
     font-size: 1.3rem;
     margin-bottom: 10px;
     font-weight: 600;
-    letter-spacing: -0.3px;
 }
 
-.especialidade-card .subtitulo {
+.card-frente .subtitulo{
     color: rgba(224, 224, 224, 0.7);
     font-size: 1rem;
     line-height: 1.6;
+}
+
+.card-verso {
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    border: 1px solid rgba(232, 185, 86, 0.3);
+    transform: rotateY(180deg);
+    padding: 30px 25px;
+}
+
+.card-verso h3{
+    color: #E8B956;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.lista-beneficios {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    width: 100%;
+}
+
+.lista-beneficios li{
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    padding: 8px 0;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lista-beneficios li:last-child {
+    border-bottom: none;
+}
+
+.destaque-card{
+    color:#E8B956;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 15px 0 20px 0;
+}
+
+.btn-card{
+    background: linear-gradient(135deg, #570707, #3a0606);
+    color: #1a1a1a;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: Playfair;
+}
+
+.btn-card:hover{
+    background: linear-gradient(135deg, #6b0808, #4a0707);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
 }
 
 .galeriaGrid button {
@@ -681,12 +759,83 @@ nav a:hover::after {
 .contacts-form form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
+}
+
+.grupo-campo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .contacts-form label {
     font-weight: 600;
     margin-bottom: 2px;
+}
+
+.icone-input {
+    position: absolute;
+    right: 12px;
+    top: 38px;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.grupo-campo.valido .icone-input {
+    opacity: 1;
+}
+
+.grupo-campo.valido .icone-input::after {
+    content: '✓';
+    color: #4caf50;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.grupo-campo.invalido .icone-input {
+    opacity: 1;
+}
+
+.grupo-campo.invalido .icone-input::after {
+    content: '✗';
+    color: #f44336;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.mensagem-erro {
+    color: #f44336;
+    font-size: 0.85rem;
+    opacity: 0;
+    height: 0;
+    transition: opacity 0.3s ease;
+}
+
+.grupo-campo.invalido .mensagem-erro {
+    opacity: 1;
+    height: auto;
+}
+
+.mensagem-sucesso {
+    background: #4caf50;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.mensagem-sucesso.mostrar {
+    opacity: 1;
+    height: auto;
+    margin-top: 10px;
 }
 
 .contacts-form input,
@@ -779,7 +928,16 @@ nav a:hover::after {
 
 .icone-endereco {
     background-image: url('../assets/img/iconelocal.png');
-}.containerMapInfos img {
+}
+
+.icone-horario{
+    background-image: url('../assets/img/iconehorario.png');
+}
+
+
+
+
+.containerMapInfos img {
     margin-right: 8px;
     width: 15px;
     height: 15px;
@@ -903,6 +1061,40 @@ footer {
 
 .link-logo::after {
     display: none !important;
+}
+
+/* ========== BOTÃO WHATSAPP FIXO ========== */
+.botao-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+.botao-whatsapp:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+}
+
+.botao-whatsapp svg {
+    width: 32px;
+    height: 32px;
+    color: white;
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 /* ========== ANIMAÇÕES DE SCROLL ========== */
@@ -1057,6 +1249,25 @@ footer {
         font-size: 1.5rem;
     }
 
+    /* Flip Cards em tablets */
+    .especialidade-card {
+        height: 400px;
+    }
+
+    .card-frete img {
+        height: 220px;
+    }
+
+    .card-frente .subtitulo,
+    .lista-beneficios li {
+        font-size: 0.95rem;
+    }
+
+    .card-frente h3,
+    .card-verso h3 {
+        font-size: 1.3rem;
+    }
+
     /* Seção Depoimentos */
     #depoimentos {
         padding: 80px 40px;
@@ -1150,6 +1361,19 @@ footer {
     #home p {
         font-size: 1.2rem;
         text-align: center;
+    }
+
+    /* WhatsApp Button */
+    .botao-whatsapp {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .botao-whatsapp svg {
+        width: 28px;
+        height: 28px;
     }
 
     /* Seção About */
@@ -1354,6 +1578,33 @@ footer {
         padding: 12px 24px;
         font-size: 1rem;
         max-width: 280px;
+    }
+
+    .especialidade-card{
+        height: 420px;
+    }
+
+    .card-frente img {
+        height: 180px;
+    }
+
+    .card-frente h3,
+    .card-verso h3 {
+        font-size: 1.2rem;
+    }
+
+    .card-frente .subtitulo,
+    .lista-beneficios li {
+        font-size: 0.9rem;
+    }
+
+    .btn-card{
+        padding: 10px 24px;
+        font-size: 0.95rem;
+    }
+
+    .destaque-card{
+        font-size: 1rem;
     }
 
     /* Contatos */
