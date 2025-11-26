@@ -456,31 +456,34 @@ nav a:hover::after {
     width: 100%;
 }
 
-/* Card individual de cada especialidade com efeito hover */
+/* Card individual de cada especialidade com efeito Flip 3D */
 .especialidade-card{
-    perspective: 1000px;
+    perspective: 1000px; /* Define profundidade 3D */
     height: 450px;
-    cursor: pointer;
+    cursor: pointer; /* Indica que é clicável */
 }
 
+/* Container interno que realiza a rotação 3D */
 .card-interno {
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
+    transition: transform 0.6s; /* Animação suave de 0.6s */
+    transform-style: preserve-3d; /* Mantém espaço 3D nos filhos */
 }
 
+/* Rotaciona 180° ao passar o mouse */
 .especialidade-card:hover .card-interno {
     transform: rotateY(180deg);
 }
 
+/* Estilos comuns para frente e verso do card */
 .card-frente,
 .card-verso {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
+    backface-visibility: hidden; /* Esconde o lado de trás quando virado */
     border-radius: 8px;
     padding: 25px;
     display: flex;
@@ -490,7 +493,7 @@ nav a:hover::after {
     text-align: center;
 }
 
-/* Frente do Card */
+/* Frente do Card - Visível inicialmente */
 .card-frente{
     background: rgba(26, 26, 26, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -498,7 +501,8 @@ nav a:hover::after {
 
 .card-frente img{
     width: 100%;
-    height: 260px;
+    height: 250px;
+    margin:auto;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -517,10 +521,11 @@ nav a:hover::after {
     line-height: 1.6;
 }
 
+/* Verso do Card - Aparece após rotação */
 .card-verso {
     background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
     border: 1px solid rgba(232, 185, 86, 0.3);
-    transform: rotateY(180deg);
+    transform: rotateY(180deg); /* Já começa virado (invisível por backface-visibility) */
     padding: 30px 25px;
 }
 
@@ -531,6 +536,7 @@ nav a:hover::after {
     font-weight: 600;
 }
 
+/* Lista de benefícios no verso do card */
 .lista-beneficios {
     list-style: none;
     padding: 0;
@@ -543,13 +549,14 @@ nav a:hover::after {
     font-size: 0.95rem;
     padding: 8px 0;
     text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória */
 }
 
 .lista-beneficios li:last-child {
-    border-bottom: none;
+    border-bottom: none; /* Remove borda do último item */
 }
 
+/* Texto de destaque no verso do card */
 .destaque-card{
     color:#E8B956;
     font-size: 1.1rem;
@@ -557,6 +564,7 @@ nav a:hover::after {
     margin: 15px 0 20px 0;
 }
 
+/* Botão de ação no verso do card */
 .btn-card{
     background: linear-gradient(135deg, #570707, #3a0606);
     color: #1a1a1a;
@@ -631,13 +639,14 @@ nav a:hover::after {
     border-radius: 8px;
     padding: 35px;
     text-align: left;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Transição suave para hover */
     box-shadow: none;
 }
 
+/* Efeito hover do card: elevação e destaque da borda */
 .card-depoimento:hover {
-    transform: translateY(-5px);
-    border-color: rgba(232, 185, 86, 0.3);
+    transform: translateY(-5px); /* Leve elevação */
+    border-color: rgba(232, 185, 86, 0.3); /* Destaque dourado na borda */
 }
 
 /* Cabeçalho do depoimento com avatar e informações */
@@ -762,6 +771,7 @@ nav a:hover::after {
     gap: 16px;
 }
 
+/* Container de cada campo do formulário com validação visual */
 .grupo-campo {
     position: relative;
     display: flex;
@@ -774,51 +784,56 @@ nav a:hover::after {
     margin-bottom: 2px;
 }
 
+/* Ícone de validação que aparece à direita do input */
 .icone-input {
     position: absolute;
     right: 12px;
     top: 38px;
     width: 20px;
     height: 20px;
-    opacity: 0;
+    opacity: 0; /* Invisível por padrão */
     transition: opacity 0.3s ease;
 }
 
+/* Campo válido: mostra ícone de check verde */
 .grupo-campo.valido .icone-input {
     opacity: 1;
 }
 
 .grupo-campo.valido .icone-input::after {
-    content: '✓';
-    color: #4caf50;
+    content: '✓'; /* Checkmark */
+    color: #4caf50; /* Verde */
     font-size: 18px;
     font-weight: bold;
 }
 
+/* Campo inválido: mostra ícone de X vermelho */
 .grupo-campo.invalido .icone-input {
     opacity: 1;
 }
 
 .grupo-campo.invalido .icone-input::after {
-    content: '✗';
-    color: #f44336;
+    content: '✗'; /* X mark */
+    color: #f44336; /* Vermelho */
     font-size: 18px;
     font-weight: bold;
 }
 
+/* Mensagem de erro abaixo do campo (aparece apenas quando inválido) */
 .mensagem-erro {
     color: #f44336;
     font-size: 0.85rem;
-    opacity: 0;
+    opacity: 0; /* Invisível por padrão */
     height: 0;
     transition: opacity 0.3s ease;
 }
 
 .grupo-campo.invalido .mensagem-erro {
-    opacity: 1;
+    opacity: 1; /* Torna visível quando campo é inválido */
     height: auto;
 }
 
+/* Mensagem de sucesso após envio do formulário */
 .mensagem-sucesso {
     background: #4caf50;
     color: white;
@@ -826,12 +841,13 @@ nav a:hover::after {
     border-radius: 6px;
     text-align: center;
     font-weight: 600;
-    opacity: 0;
+    opacity: 0; /* Invisível por padrão */
     height: 0;
     overflow: hidden;
     transition: all 0.3s ease;
 }
 
+/* Classe adicionada via JavaScript para mostrar a mensagem */
 .mensagem-sucesso.mostrar {
     opacity: 1;
     height: auto;
@@ -970,7 +986,7 @@ footer {
 .footer-linha {
     width: 100%;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr repeat(4, 1fr);
     gap: 3rem;
     align-items: start;
 }
@@ -1064,26 +1080,28 @@ footer {
 }
 
 /* ========== BOTÃO WHATSAPP FIXO ========== */
+/* Botão flutuante fixo no canto inferior direito */
 .botao-whatsapp {
     position: fixed;
     bottom: 30px;
     right: 30px;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #25D366, #128C7E);
+    background: linear-gradient(135deg, #25D366, #128C7E); /* Cores oficiais do WhatsApp */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-    z-index: 1000;
+    z-index: 1000; /* Garante que fique sobre todos os elementos */
     transition: all 0.3s ease;
-    animation: flutuar 3s ease-in-out infinite;
+    animation: flutuar 3s ease-in-out infinite; /* Animação de flutuação contínua */
 }
 
+/* Efeito hover: eleva e aumenta o botão */
 .botao-whatsapp:hover {
     transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); /* Sombra mais intensa */
 }
 
 .botao-whatsapp svg {
@@ -1092,25 +1110,30 @@ footer {
     color: white;
 }
 
+/* Animação de flutuação suave para chamar atenção */
 @keyframes flutuar {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-10px); } /* Move 10px para cima no meio da animação */
 }
 
 /* ========== ANIMAÇÕES DE SCROLL ========== */
-/* Elementos aparecem suavemente ao rolar */
+/* Elementos aparecem suavemente ao rolar a página */
+/* Estado inicial: elemento invisível e deslocado para baixo */
 .animar-scroll {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
+/* Estado animado: elemento visível na posição original */
+/* Classe adicionada via IntersectionObserver no JavaScript */
 .animar-scroll.animado {
     opacity: 1;
     transform: translateY(0);
 }
 
 /* Restaura transições rápidas de hover após animação inicial */
+/* Garante que os efeitos hover permaneçam fluidos após scroll animation */
 .animar-scroll.animado.card,
 .animar-scroll.animado.especialidade-card,
 .animar-scroll.animado.card-depoimento {
@@ -1118,10 +1141,13 @@ footer {
 }
 
 /* ========== MEDIA QUERIES - RESPONSIVIDADE ========== */
+/* Ajustes de layout para diferentes tamanhos de tela */
+/* 3 breakpoints: 1024px (tablets), 768px (smartphones), 480px (telas muito pequenas) */
 
-/* Tablets - Telas médias (768px a 1024px) */
+/* ===== Tablets - Telas médias (768px a 1024px) ===== */
+/* Menu mobile ativado, grid de 1 coluna, redução de espaçamentos */
 @media (max-width: 1024px) {
-    /* Header e navegação */
+    /* Header: reduz altura e centraliza logo */
     .header {
         height: 100px;
         padding: 0;
@@ -1141,12 +1167,12 @@ footer {
         display: none;
     }
 
-    /* Mostra botão hambúrguer */
+    /* Mostra botão hambúrguer para menu mobile */
     .menu-mobile-icon {
         display: flex;
     }
 
-    /* Ativa menu mobile */
+    /* Ativa menu mobile (inicialmente oculto via JavaScript) */
     .menu-mobile {
         display: flex;
     }
@@ -1311,7 +1337,8 @@ footer {
     }
 }
 
-/* Smartphones - Telas pequenas (até 768px) */
+/* ===== Smartphones - Telas pequenas (até 768px) ===== */
+/* Layouts verticais, fontes menores, botões reduzidos */
 @media (max-width: 768px) {
     /* Header */
     .header {
@@ -1518,7 +1545,8 @@ footer {
     }
 }
 
-/* Smartphones pequenos - Telas muito pequenas (até 480px) */
+/* ===== Smartphones pequenos - Telas muito pequenas (até 480px) ===== */
+/* Ajustes finais para telas compactas: fontes e espaçamentos mínimos */
 @media (max-width: 480px) {
     /* Header */
 
