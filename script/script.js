@@ -12,6 +12,36 @@ document.addEventListener('scroll', function() {
     }
 });
 
+// ========== DESTACA MENU DE NAVEGAÇÃO CONFORME SEÇÃO ATUAL ==========
+// Monitora scroll e adiciona classe 'active' no link da seção visível
+const sections = document.querySelectorAll('section'); // Todas as seções da página
+const navLinks = document.querySelectorAll('nav a[href^="#"]'); // Links de navegação que começam com #
+
+// Função que verifica qual seção está visível durante o scroll
+window.addEventListener('scroll', () => {
+    let current = ''; // Armazena o ID da seção atual
+    
+    // Percorre todas as seções para verificar qual está no topo
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop; // Posição do topo da seção
+        const sectionHeight = section.clientHeight; // Altura da seção
+        
+        // Se a rolagem passou do início da seção (com margem de 150px)
+        if (window.scrollY >= (sectionTop - 150)) {
+            current = section.getAttribute('id'); // Guarda o ID da seção atual
+        }
+    });
+    
+    // Atualiza a classe active em todos os links
+    navLinks.forEach(link => {
+        link.classList.remove('active'); // Remove active de todos
+        // Adiciona active apenas no link que corresponde à seção atual
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
+
 // ========== MENU HAMBÚRGUER MOBILE ==========
 // Controla abertura/fechamento do menu lateral em tablets e smartphones
 const menuIcon = document.querySelector('.menu-mobile-icon');
