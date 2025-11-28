@@ -530,6 +530,19 @@ nav a.active::after {
     line-height: 1.6;
 }
 
+/* Mensagem de instrução para mobile/tablet - oculta por padrão */
+.card-frente .mensagem-toque {
+    display: none;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: rgba(232, 185, 86, 0.2);
+    border: 1px solid rgba(232, 185, 86, 0.4);
+    border-radius: 20px;
+    color: #E8B956;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
 /* Verso do Card - Aparece após rotação */
 .card-verso {
     background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
@@ -1317,6 +1330,11 @@ footer {
         height: 400px;
     }
 
+    /* Exibe mensagem de toque em tablets */
+    .card-frente .mensagem-toque {
+        display: block;
+    }
+
     .card-frete img {
         height: 220px;
     }
@@ -1604,7 +1622,7 @@ footer {
 
     /* Seção Home */
     #home h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     #home p {
@@ -1698,5 +1716,133 @@ footer {
     .social-icons a img {
         width: 28px;
         height: 28px;
+    }
+}
+
+/* ========== PROJETORES / TELÕES (ASPECT RATIO QUADRADO) ========== */
+/* Ajustes para projetores com resolução quadrada ou próxima (4:3, 5:4) */
+/* Resolve cortes e desconfiguração em apresentações */
+@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/4) {
+    /* Header mais compacto */
+    .header {
+        height: 80px;
+        padding: 0 20px;
+    }
+
+    header img,
+    .logoContainer img {
+        height: 60px;
+        width: 60px;
+    }
+
+    /* Reduz padding lateral para aproveitar largura limitada */
+    #home,
+    #about,
+    #especialidades,
+    #depoimentos,
+    #contacts {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    /* Home - ajusta altura */
+    #home {
+        min-height: 80vh;
+    }
+
+    #home h1 {
+        font-size: 2.5rem;
+    }
+
+    #home p {
+        font-size: 1.3rem;
+    }
+
+    /* About - layout vertical mais compacto */
+    #about {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "areatexto"
+            "imagesobre"
+            "cards";
+        gap: 30px;
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+
+    .imagesobre {
+        height: 350px;
+        width: 350px;
+    }
+
+    /* Cards MVV em linha única */
+    .cardsContainer {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .card {
+        padding: 25px 15px;
+    }
+
+    /* Especialidades - grid de 3 colunas mais compacto */
+    .galeriaGrid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .especialidade-card {
+        height: 350px;
+    }
+
+    .card-frente img {
+        height: 160px;
+    }
+
+    /* Depoimentos em 3 colunas */
+    .grid-depoimentos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .card-depoimento {
+        padding: 20px;
+    }
+
+    /* Contatos - mantém lado a lado mas compacto */
+    .contacts-container {
+        gap: 25px;
+    }
+
+    .contacts-form,
+    .containerMapInfos {
+        padding: 25px;
+    }
+
+    /* Footer compacto */
+    footer {
+        padding: 2rem;
+    }
+
+    .footer-linha {
+        gap: 1.5rem;
+    }
+
+    /* Botões flutuantes menores */
+    .botao-whatsapp {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .botao-whatsapp svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    /* Títulos de seção menores */
+    h2 {
+        font-size: 2.2rem !important;
     }
 }
