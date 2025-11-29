@@ -1433,6 +1433,8 @@ footer {
     #home {
         height: 60vh;
         padding: 0 20px;
+        background-position: center center;
+        background-size: cover;
     }
 
     #home h1 {
