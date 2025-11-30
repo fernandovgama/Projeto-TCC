@@ -971,10 +971,6 @@ nav a.active::after {
 .icone-horario{
     background-image: url('../assets/img/iconehorario.png');
 }
-
-
-
-
 .containerMapInfos img {
     margin-right: 8px;
     width: 15px;
