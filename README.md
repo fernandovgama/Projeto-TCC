@@ -64,10 +64,11 @@ A **BeefLogy** é uma empresa do ramo de **carnes premium**, que busca transmiti
 ├── index.html
 ├── css/
 │   └── style.css
-├── js/
+├── script/
 │   └── script.js
 ├── assets/
-│   └── imagens e ícones
+│   └── img
+|       └── imagens e ícones
 └── README.md
 ```
 
