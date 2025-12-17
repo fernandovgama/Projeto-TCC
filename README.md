@@ -79,7 +79,7 @@ A **BeefLogy** é uma empresa do ramo de **carnes premium**, que busca transmiti
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/fernandovgama/Projeto-TCC.git
 ```
 
 2. Acesse a pasta do projeto:
@@ -96,7 +96,7 @@ cd seu-repositorio
 
 Caso o projeto esteja publicado:
 
-🔗 **Link da landing page:** [https://seusite.com](https://seusite.com)
+🔗 **Link da landing page:** https://fernandovgama.github.io/Projeto-TCC/
 
 ---
 
